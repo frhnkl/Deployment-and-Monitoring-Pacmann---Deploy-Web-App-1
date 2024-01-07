@@ -1,6 +1,5 @@
 # Deployment-and-Monitoring-Pacmann---Deploy-Web-App
 the purpose of this project is to deploy previous web architecture project, twittr app that is. it can be accesed in https://github.com/frhnkl/Web-Arc-twttr-app. The twittr app  was made using vue for front-end and flask for backend. In the project, we will try to deploy it so it can be accessed through website alongside with integrating CI/CD pipeline for this project.
-## Workflow
 ## Server Preparation
 - Installing docker
   docker is free and supports various OS. it can be downloaded in https://docs.docker.com/desktop/
@@ -39,7 +38,7 @@ the purpose of this project is to deploy previous web architecture project, twit
   ```
   
 ## Preparing WebApp
-
+the web app that we will use is avalaible in https://github.com/frhnkl/Web-Arc-twttr-app. we will use it as base for docker and CI/CD and deploy it to website
 ## Setting up Docker
 - Dockerizing Flask-Backend
   to be autamatically run, we need to dockerize our backend by creating dockerfile with this
