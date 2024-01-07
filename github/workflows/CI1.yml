@@ -7,27 +7,27 @@ on:
 jobs:
 
   build-testing:
-    name: Build and Testing
+    name: BuildnTest
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check repository
         uses: actions/checkout@v2
     
-      - name: Install Docker Compose 
+      - name: Install Docker
         run: |
           sudo apt-get update
           sudo apt-get install -y docker-compose
       
-      - name: Build and Run Container
+      - name: BuildRun Container
         run: |
           sudo docker compose up -d
 
-      - name: Install Requirements for Testing
+      - name: Requirements install
         run: |
           pip install -r testing\requirements.txt
 
-      - name: Testing
+      - name: Test
         run: |
           sleep 20
           pytest testing/test.py          
