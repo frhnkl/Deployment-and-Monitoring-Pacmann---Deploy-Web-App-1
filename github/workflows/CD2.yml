@@ -5,39 +5,39 @@
     jobs:
         
         build-push:
-            name: Build and Push Image To DockerHub
+            name: Build and Push Image to Docker
             runs-on: windows-latest
     
             steps:
-                - name: Checkout Repository
+                - name: Check Repository
                   uses: actions/checkout@v2
     
-                - name: Login to Docker Hub
+                - name: Login Docker
                   uses: docker/login-action@v2
                   with:
                     username: ${{ secrets.DOCKERHUB_USERNAME }}
                     password: ${{ secrets.DOCKERHUB_TOKEN }}
     
-                - name: Set up Docker Buildx
+                - name: Set up Docker
                   uses: docker/setup-buildx-action@v2
                   
-                - name: Build and push flaskapp
+                - name: Build and push flask-backend
                   uses: docker/build-push-action@v4
                   with:
-                    context: ./Final/Flask
-                    file: ./Final/Flask/Dockerfile
+                    context: ./flask-backend
+                    file: ./flask/dockerfile
                     push: true
                     tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask:${{ github.run_number }}/Flask:latest
                       
-                - name: Build and push vue_project
+                - name: Build and push vue-frontend
                   uses: docker/build-push-action@v4
                   with:
-                    context: ./Final/vue_project
-                    file: ./Final/vue_project/Dockerfile
+                    context: ./vue-frontend
+                    file: ./vue-frontend/dockerfile
                     push: true
                     tags: ${{ secrets.DOCKERHUB_USERNAME }}/vue_project:${{ github.run_number }}/vue_project:latest
         deploy: 
-            name: Deploy to Server
+            name: server deploy
             runs-on: self-hosted
             needs: build-push
     
