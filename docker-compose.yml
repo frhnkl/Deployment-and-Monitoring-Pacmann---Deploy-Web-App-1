@@ -5,8 +5,8 @@ services:
     container_name: flask-compose
     image: flask:0.0.6
     build:
-      context: ./Final/Flask
-      dockerfile: Dockerfile
+      context: ./flask-backend
+      dockerfile: dockerfile
     restart: always
     ports:
       - "5010:5000"
@@ -29,8 +29,8 @@ services:
   frontend:
     image: frontend:latest
     build:
-      context: ./Final/vue_project
-      dockerfile: Dockerfile
+      context: ./vue-forntend
+      dockerfile: dockerfile
     ports:
       - 8090:8080
     depends_on:
